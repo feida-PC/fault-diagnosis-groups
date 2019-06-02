@@ -6,6 +6,10 @@ import scipy.misc
 import matplotlib.pyplot as plt
 
 def figplot(dic,fig_name):
+    """
+    input:一个字典和一个图的名字，字典的每个键代表一条折线，键对应列表的每一个值代表单位时间（x轴）折线对应的值（y轴）
+    output:一条或多条代表时间和速率的折线图
+    """
     for i in dic.keys():
         plt.title('Result Analysis')
         plt.plot(dic[i],label=i)
@@ -16,6 +20,10 @@ def figplot(dic,fig_name):
     plt.show()
 
 def accplot(array,fig_name):
+    """
+    input:输入一个单列numpy矩阵（多列label会重复），每一列的值代表单位时间（x轴）折线对应的值（y轴）
+    output:和上一个相似的折线图
+    """
     plt.title('Result Analysis')
     plt.plot(array,label='accuracy')
     plt.legend() # 显示图例
@@ -26,6 +34,11 @@ def accplot(array,fig_name):
 
     
 def figscat(samples1,samples2,fig_name,types=10,y_=None):
+    """
+    input:samples1和samples2两个单列矩阵和图名，矩阵列数表示数据个数，矩阵每行的数值应为0到9共10个整数（？），对应10种故障状态，
+    其中samples1表示“正确预测”集，samples2表示“错误预测”集
+    output：关于正确和错误预测及其预测故障类型的散点图
+    """
     font1 = {'family': 'Times New Roman',
          'weight': 'normal',
          'size': 10,
